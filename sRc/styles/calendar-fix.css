@@ -1,0 +1,256 @@
+/* Enhanced Calendar Styling */
+.calendar-container {
+  width: 100%;
+}
+
+.calendar-container .rdp {
+  width: 100%;
+}
+
+.calendar-container .rdp-months {
+  width: 100%;
+  justify-content: center;
+}
+
+.calendar-container .rdp-month {
+  width: 100%;
+}
+
+.calendar-container .rdp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-container .rdp-head_row,
+.calendar-container .rdp-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 100%;
+}
+
+.calendar-container .rdp-head_cell {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  padding: 0.5rem;
+}
+
+.calendar-container .rdp-cell {
+  text-align: center;
+  padding: 0;
+  position: relative;
+}
+
+.calendar-container .rdp-button {
+  width: 100%;
+  height: 2.25rem;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.calendar-container .rdp-button:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.calendar-container .rdp-button:focus {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.calendar-container .rdp-day_selected {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: 600;
+}
+
+.calendar-container .rdp-day_selected:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.calendar-container .rdp-day_today {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font-weight: 600;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+}
+
+.calendar-container .rdp-day_outside {
+  color: hsl(var(--muted-foreground) / 0.5);
+  opacity: 0.5;
+}
+
+.calendar-container .rdp-day_disabled {
+  color: hsl(var(--muted-foreground) / 0.3);
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Week numbers styling */
+.calendar-container .rdp-weeknumber {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation buttons */
+.calendar-container .rdp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.calendar-container .rdp-nav_button {
+  height: 2rem;
+  width: 2rem;
+  background-color: transparent;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.375rem;
+}
+
+.calendar-container .rdp-nav_button:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.calendar-container .rdp-nav_button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.calendar-container .rdp-nav_button:active {
+  transition: all 0.2s ease-in-out;
+}
+
+.calendar-container .rdp-nav_button_previous {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.calendar-container .rdp-nav_button_next {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+/* Caption styling */
+.calendar-container .rdp-caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.calendar-container .rdp-caption_label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+/* Custom animations for calendar */
+@keyframes calendar-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-container .rdp-day {
+  animation: calendar-fade-in 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 0 0.5rem;
+  }
+  
+  .calendar-container .rdp {
+    padding: 0.5rem;
+  }
+  
+  .calendar-container .rdp-head_cell,
+  .calendar-container .rdp-button {
+    font-size: 0.75rem;
+  }
+  
+  .calendar-container .rdp-button {
+    height: 2rem;
+    min-width: 2rem;
+  }
+  
+  .calendar-container .rdp-caption_label {
+    font-size: 0.875rem;
+  }
+  
+  .calendar-container .rdp-nav_button {
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container .rdp-head_cell {
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .calendar-container .rdp-button {
+    height: 1.75rem;
+    min-width: 1.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .calendar-container .rdp-nav_button {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  
+  .calendar-container .rdp-caption {
+    padding: 0.25rem 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Task indicator dots */
+.calendar-container .rdp-day[data-has-task="true"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: hsl(var(--primary));
+  border-radius: 50%;
+}
+
+.calendar-container .rdp-day[data-completed="true"]::after {
+  background-color: hsl(120, 100%, 50%);
+}
+
+.calendar-container .rdp-day[data-high-priority="true"]::after {
+  background-color: hsl(0, 100%, 50%);
+  width: 0.375rem;
+  height: 0.375rem;
+}
