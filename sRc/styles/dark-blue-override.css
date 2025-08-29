@@ -1,0 +1,49 @@
+/* Pure black & deep blue theme overrides */
+
+@layer base {
+  .dark {
+    /* surfaces */
+    --background: 0 0% 3%;          /* almost pure black */
+    --card: 220 6% 9%;              /* very dark blue-grey */
+    --popover: 220 6% 9%;
+
+    /* foreground */
+    --foreground: 210 40% 96%;
+
+    /* primary / accent blues */
+    --primary: 220 100% 60%;        /* bright blue */
+    --primary-foreground: 210 40% 98%;
+    --accent: 210 100% 55%;         /* slightly softer blue */
+    --accent-foreground: 210 40% 98%;
+    --ring: 220 100% 60%;
+
+    --secondary: 220 8% 14%;
+    --border: 220 7% 18%;
+    --input: 220 7% 18%;
+  }
+}
+
+@layer components {
+  /* Subtle flat primary button instead of glossy gradient */
+  .button-gradient {
+    @apply bg-primary/90 text-primary-foreground shadow-md transition-colors duration-300;
+    background-image: none;
+  }
+  .button-gradient:hover {
+    @apply bg-primary;
+    box-shadow: 0 0 10px hsla(220, 100%, 60%, 0.35);
+  }
+
+  /* Tone-down interactive button lift & glow */
+  .interactive-button {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  .interactive-button:hover {
+    box-shadow: 0 0 12px hsla(220, 100%, 60%, 0.35);
+  }
+
+  /* Softer hover-lift */
+  .hover-lift:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 0 18px hsla(220, 100%, 60%, 0.2);
+  }
+}
